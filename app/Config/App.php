@@ -16,7 +16,25 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost/electriccompany';
+    // Use the hostname/IP that the browser used to reach this installation.
+    // This keeps generated links working from localhost and other LAN devices.
+    public string $baseURL = 'http://localhost/electriccompany/';
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+        if (! preg_match('/\A[A-Za-z0-9.:-]+\z/', $host)) {
+            $host = 'localhost';
+        }
+
+        $scheme = (! empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+            ? 'https'
+            : 'http';
+
+        $this->baseURL = $scheme . '://' . $host . '/electriccompany/';
+    }
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

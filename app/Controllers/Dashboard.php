@@ -2,14 +2,6 @@
 
 namespace App\Controllers;
 
-class Dashboard extends BaseController
+class Dashboard extends CustomerAccounts
 {
-    public function index(): string
-    {
-        return view('dashboard', [
-            'title' => 'Dashboard - Puihaha Electric',
-            'page' => 'dashboard',
-            'userName' => session()->get('userName'),
-        ]);
-    }
 }

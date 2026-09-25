@@ -45,7 +45,7 @@ class Login extends BaseController
             'userType' => $user['user_type'],
         ]);
 
-        return redirect()->to('http://localhost/ci4_pagination');
+        return redirect()->to('/dashboard');
     }
 
     public function logout()

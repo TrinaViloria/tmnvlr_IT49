@@ -192,7 +192,7 @@
                     </li>
                     <?php if (session()->get('isLoggedIn')): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/ci4_pagination">Dashboard</a>
+                            <a class="nav-link <?= (isset($page) && $page == 'dashboard') ? 'active' : '' ?>" href="<?= base_url('dashboard') ?>">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
