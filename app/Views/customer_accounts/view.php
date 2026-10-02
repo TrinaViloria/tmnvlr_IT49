@@ -15,7 +15,8 @@
     </style>
 </head><body><div class="container"><div class="main-container">
     <div class="header-section"><h1><i class="bi bi-lightning-charge-fill text-warning"></i> Puihaha Electric Company</h1><p class="text-muted">Customer Account Details</p></div>
-    <div class="mb-4"><a href="<?= site_url('customer-accounts') ?>" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Back to Dashboard</a></div>
+    <?php if (session('success')): ?><div class="alert alert-success"><?= esc(session('success')) ?></div><?php endif; ?>
+    <div class="mb-4 d-flex gap-2"><a href="<?= site_url('customer-accounts') ?>" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Back to Dashboard</a><a href="<?= site_url('customer-accounts/' . $account['id'] . '/edit') ?>" class="btn btn-primary"><i class="bi bi-pencil"></i> Edit</a><form method="post" action="<?= site_url('customer-accounts/' . $account['id'] . '/delete') ?>" onsubmit="return confirm('Delete this customer account?');" class="d-inline"><?= csrf_field() ?><button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</button></form></div>
     <div class="card"><div class="card-header bg-primary text-white"><h4 class="mb-0"><i class="bi bi-person-circle"></i> Account Information</h4></div><div class="card-body">
         <?php foreach ([['Account Number', $account['account_number']], ['Customer Name', $account['customer_name']], ['Address', $account['address']], ['Phone', $account['phone']], ['Email', $account['email']], ['Meter Number', $account['meter_number']], ['Connection Type', ucfirst($account['connection_type'])], ['Status', ucfirst($account['status'])]] as [$label, $value]): ?><div class="info-group"><div class="info-label"><?= $label ?></div><div class="info-value"><?= esc($value) ?></div></div><?php endforeach; ?>
     </div></div>

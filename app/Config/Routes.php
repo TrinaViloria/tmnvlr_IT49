@@ -15,7 +15,13 @@ $routes->get('/login', 'Login::index');
 $routes->post('/login', 'Login::authenticate');
 $routes->get('/logout', 'Login::logout');
 
-// Point this route at your existing dashboard controller if its name differs.
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('/customer-accounts', 'CustomerAccounts::index', ['filter' => 'auth']);
+$routes->get('/customer-accounts/new', 'CustomerAccounts::new', ['filter' => 'auth']);
+$routes->post('/customer-accounts', 'CustomerAccounts::create', ['filter' => 'auth']);
+$routes->get('/customer-accounts/(:num)/edit', 'CustomerAccounts::edit/$1', ['filter' => 'auth']);
+$routes->put('/customer-accounts/(:num)', 'CustomerAccounts::update/$1', ['filter' => 'auth']);
+$routes->post('/customer-accounts/(:num)', 'CustomerAccounts::update/$1', ['filter' => 'auth']);
+$routes->delete('/customer-accounts/(:num)', 'CustomerAccounts::delete/$1', ['filter' => 'auth']);
+$routes->post('/customer-accounts/(:num)/delete', 'CustomerAccounts::delete/$1', ['filter' => 'auth']);
 $routes->get('/customer-accounts/(:num)', 'CustomerAccounts::viewAccount/$1', ['filter' => 'auth']);

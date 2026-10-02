@@ -16,6 +16,22 @@ class CustomerAccountModel extends Model
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
 
+    protected $validationRules = [
+        'account_number'  => 'required|max_length[30]|is_unique[customer_accounts.account_number,id,{id}]',
+        'customer_name'   => 'required|min_length[2]|max_length[150]',
+        'address'         => 'required|max_length[255]',
+        'phone'           => 'permit_empty|max_length[30]',
+        'email'           => 'permit_empty|valid_email|max_length[255]',
+        'meter_number'    => 'permit_empty|max_length[30]|is_unique[customer_accounts.meter_number,id,{id}]',
+        'connection_type' => 'required|in_list[residential,commercial,industrial]',
+        'status'          => 'required|in_list[active,inactive,suspended]',
+    ];
+
+    protected $validationMessages = [
+        'account_number' => ['is_unique' => 'That account number is already in use.'],
+        'meter_number' => ['is_unique' => 'That meter number is already in use.'],
+    ];
+
     public function getFilteredAccounts(array $filters, int $perPage = 10): array
     {
         if ($filters['search'] !== '') {

@@ -7,14 +7,14 @@
     <title><?= isset($title) ? $title : 'Puihaha Electric' ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="<?= base_url('assets/css/custom.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('public/assets/css/custom.css?v=2') ?>" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1e40af;
-            --secondary-color: #f59e0b;
-            --accent-color: #10b981;
-            --dark-color: #1f2937;
-            --light-color: #f8fafc;
+            --primary-color: #6f1d2f;
+            --secondary-color: #b83a54;
+            --accent-color: #8f2940;
+            --dark-color: #0d0d0f;
+            --light-color: #faf8f8;
         }
 
         body {
@@ -59,8 +59,8 @@
         }
 
         .btn-primary:hover {
-            background-color: #d97706;
-            border-color: #d97706;
+            background-color: #531524;
+            border-color: #531524;
             transform: translateY(-2px);
         }
 
@@ -163,7 +163,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand" href="<?= base_url() ?>">
-                <i class="fas fa-bolt text-warning me-2"></i>Puihaha Electric
+                <i class="fas fa-bolt text-secondary-custom me-2"></i>Puihaha Electric
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -215,7 +215,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <h5><i class="fas fa-bolt text-warning me-2"></i>Puihaha Electric</h5>
+                    <h5><i class="fas fa-bolt text-secondary-custom me-2"></i>Puihaha Electric</h5>
                     <p class="mb-3">Providing reliable and sustainable electrical solutions for over 25 years.
                         Your trusted partner for all electrical needs.</p>
                     <div class="social-icons">
@@ -268,7 +268,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url('assets/js/app.js') ?>"></script>
+    <script src="<?= base_url('public/assets/js/app.js?v=2') ?>"></script>
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -304,3 +304,4 @@
 </body>
 
 </html>
+
