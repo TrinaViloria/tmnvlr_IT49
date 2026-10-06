@@ -4,7 +4,7 @@
     <div class="container">
         <div class="d-flex align-items-center justify-content-between gap-3 mb-4">
             <div><span class="dashboard-kicker">Customer accounts</span><h1 class="mb-0"><?= isset($account['id']) ? 'Edit account' : 'Add account' ?></h1></div>
-            <a href="<?= site_url('customer-accounts') ?>" class="btn btn-outline-secondary">Cancel</a>
+            <a href="<?= site_url('customer-accounts') ?>" class="btn btn-outline-primary">Cancel</a>
         </div>
         <?php $errors = session('errors') ?? []; if ($errors): ?><div class="alert alert-danger"><ul class="mb-0"><?php foreach ($errors as $error): ?><li><?= esc($error) ?></li><?php endforeach; ?></ul></div><?php endif; ?>
         <div class="card p-4"><form method="post" action="<?= esc($formAction) ?>">
