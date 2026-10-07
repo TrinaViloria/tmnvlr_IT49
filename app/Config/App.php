@@ -18,7 +18,7 @@ class App extends BaseConfig
      */
     // Use the hostname/IP that the browser used to reach this installation.
     // This keeps generated links working from localhost and other LAN devices.
-    public string $baseURL = 'http://localhost/electriccompany/';
+    public string $baseURL = 'http://tmnvlr.freedev.app/electriccompany/';
 
     public function __construct()
     {
